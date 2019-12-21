@@ -1,0 +1,317 @@
+@font-face {
+	font-family: MORVA;
+	src: url('../fonts/morva/MORVA.ttf');
+}
+
+@font-face {
+	font-family: Nexa-Bold;
+	src: url('../fonts/nexa/Nexa Bold.otf');
+}
+
+@font-face {
+	font-family: Nexa-Light;
+	src: url('../fonts/nexa/Nexa Light.otf');
+}
+
+.nav-link {
+	font-family: Nexa-Light;
+}
+
+
+
+.Morva {
+	font-family: MORVA;
+}
+
+.Nexa-Light {
+	font-family: Nexa-Light;
+}
+
+.Nexa-Bold {
+	font-family: Nexa-Bold;
+}
+
+.logo {
+	font-size: 5vw;
+	color: white;
+}
+
+.navbar-brand,
+.nav-link {
+	color: white !important;
+}
+
+nav>button {
+	color: white;
+}
+
+.navbar-brand {
+	margin-left: 10rem;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:hover {
+	text-decoration: none;
+	border: 0;
+	outline: none;
+}
+
+.dropdown-menu {
+	background-color: #0e0e0e !important;
+}
+
+.dropdown-item {
+	color: #fff !important;
+}
+
+.dropdown-item:hover {
+	background-color: #5d5d5d8c;
+}
+
+.social-nav {
+	display: inline-block;
+}
+
+.social-nav>li {
+	display: inline-block;
+}
+
+.about-us {
+	margin-top: 6rem;
+	margin-left: 7rem;
+	border-bottom: 1px solid black;
+}
+
+.about-us>div>p {
+	padding: 0 0 0 10px;
+	border-left: 2px solid black;
+	font-size: calc(.5rem + 1.2vw);
+}
+
+.about-us>div>h2 {
+	margin-left: 100px;
+}
+
+.about-us-text {
+	margin-top: 0;
+}
+
+
+.bg-light {
+	background-color: black !important;
+}
+
+.overlay {
+	position: relative;
+	top: -50px;
+	background-color: #fff;
+	width: 80%;
+	margin-left: 100px;
+	padding: 50px;
+	font-size: 40px;
+	border-bottom: 1px solid black;
+	text-align: center;
+}
+
+.best-of {
+	max-height: 350px;
+	/* width: 250px; */
+}
+
+.of-the-week {
+	max-height: 750px;
+}
+
+.footer {
+	background-color: black;
+}
+
+.footer>div>div>div>h1 {
+	font-size: 15vw;
+	color: #0e0e0e !important;
+
+}
+
+.sign {
+	background-color: #444444;
+	color: white;
+	border: 0;
+	padding: 10px 20px 10px 20px;
+}
+
+.col>h2 {
+	margin-top: 70px;
+}
+
+.footer>div>div>.col {
+	text-align: center;
+}
+
+.footer>div>div>div>p {
+	font-size: 20px;
+}
+
+input {
+	padding: 10px 20px 10px 20px;
+	color: #444444;
+	font-family: Nexa-Light;
+}
+
+
+.archive-date {
+	margin: 5% 0;
+	font-family: Nexa-Light;
+	font-size: 18px;
+}
+
+.archive-sperator-line {
+	width: 95%;
+}
+
+.img-container {
+	padding: 30px 0;
+}
+
+.col-md-4>a>img {
+	width: 300px;
+	height: 80%;
+	object-fit: cover;
+}
+
+.img-title {
+	text-align: center;
+}
+
+
+/* register/login style start */
+
+.form-control:focus,
+.form-control:hover {
+	outline: none;
+	border-color: inherit;
+	box-shadow: none;
+}
+
+.form-control {
+	border: none;
+	border-bottom: 1px solid black;
+	border-radius: 1px;
+	padding: 5px;
+	margin: -10px 0px 30px 10px;
+}
+.form-group>.sign, .form-group>.sign:hover, .form-group>.sign:focus {
+	width: 20%;
+    margin: 0 auto;
+    border: none;
+    font-family: Nexa-Ligth;
+    padding: 0;
+    background-color: #080513d9;
+	border-radius: 5px;	
+	color: white;
+}
+
+.input-error{
+	display: block;
+    margin-top: -15px;
+    margin-bottom: 15px;
+    font-size: 12px;
+    color: #ad1106;
+}
+
+.login-header>h1{
+	text-align: center;
+	font-family: Nexa-Bold;
+}
+
+.login-header>a{
+	color:gray;
+	text-align: center;
+	font-family: Nexa-Light;
+}
+.login-header>a:hover{
+	color:#4f2ae2;
+	text-align: center;
+	font-family: Nexa-Light;
+}
+.login-btn{
+	width: calc(15vw - 20px) !important;
+}
+
+/* end */
+@media (max-width:991px) {
+	.col-md-4>a>img {
+		width: 100% !important;
+	}
+
+	.social-nav>li {
+		margin: 0 5px 0 3px;
+	}
+
+	.navbar-brand {
+		margin-left: 0rem;
+	}
+
+	.overlay {
+		width: 80%;
+		padding: 50px;
+		margin-left: calc(3vw + 30px);
+		font-size: 25px;
+	}
+
+}
+
+@media (max-width:768px) {
+
+	.about-us {
+		margin-left: 0;
+	}
+
+	.about-us-text {
+		margin-top: 0;
+	}
+}
+
+@media (max-width:767px) {
+	.about-us {
+		margin-top: 3rem;
+		margin-left: 0px
+	}
+
+	.about-us-text {
+		margin-top: 0vw;
+	}
+
+	.about-us>div>h2 {
+		margin-left: 40px;
+	}
+
+	.overlay {
+		width: 80%;
+		padding: 20px;
+		font-size: 20px;
+
+	}
+
+}
+
+@media (max-width:576px) {
+	.col-xs-6 {
+		width: 50%;
+	}
+
+	.about-us>div>p {
+		font-size: calc(3.5vw - 3px);
+	}
+
+	.about-us>div>h2 {
+		margin-left: 10px;
+		font-size: 6vw;
+	}
+}
+
+@media (max-width:464px) {
+	.overlay {
+		font-size: 12px;
+		font-size: calc(1rem);
+	}
+}
