@@ -12,4 +12,14 @@ public class PageAccueilController {
 	public String AccueilPage () {
 		return "index" ; 
 	}
+	
+	@RequestMapping ("/login")
+	public String LoginPage () {
+		return "login" ;
+	}
+	
+	@RequestMapping ("/register")
+	public String RegisterPage () {
+		return "register" ;
+	}
 }
