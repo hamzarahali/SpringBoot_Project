@@ -1,5 +1,6 @@
 package com.example.demo.web;
 
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,14 +31,21 @@ public class PageAccueilController {
 	@RequestMapping ( value = "/register" , method = RequestMethod.GET )
 	public String RegisterPage ( Model m ) {
 		Client clt = new Client () ; 
-		m.addAttribute ("client",clt) ; 
+		m.addAttribute("client", clt) ;
+		m.addAttribute("erreur","") ; 
 		return "register" ;
 	}
 	
 	@RequestMapping ( value = "/save_client" , method = RequestMethod.POST )
 	public String SaveClient ( Model m , Client client ) {
-		cd.save(client) ; 
-		return "login" ;
+		Client clt_check = cd.findByEmail(client.getEmail())  ;
+		if ( clt_check != null ) {
+			m.addAttribute("erreur", "EMAIL VALID IN THE DATABASE") ;
+			return "register" ; 
+		} else {
+			cd.save(client) ; 
+			return "login" ;
+		}
 	}
 	
 }
