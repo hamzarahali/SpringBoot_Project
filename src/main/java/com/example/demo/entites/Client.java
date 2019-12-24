@@ -29,7 +29,6 @@ public class Client implements Serializable {
 	@Column( name = "last_name" )
 	private String lname;
 	
-	
 	@Column( name = "adress" )
 	private String adress;
 	

@@ -1,7 +1,28 @@
 <!--  HEADER  -->
-	<div th:replace="includes/header :: header"></div>
+		<div th:replace="includes/header :: header"></div>
 
-		
+<div class="container" style="margin: 6% auto ; padding: 30px 190px;">
+    <div class="login-header">
+        <h1>Login</h1>
+        <a th:href="@{register}"><h6> You don't have an account ? Signup now</h6></a>
+        <hr width=70%>
+    </div>
+    <div th:if="${x}">
+       		<h3 class="Nexa-bold alert alert-danger" style="text-align: center" th:text="${erreur}"></h3>
+       	</div>
+    <form th:action="@{auth}" method="POST" th:object="${client}">
+        <input placeholder="Email" type="email" th:field="*{email}" class="form-control" id="email"
+            style="width: 180px;margin: 30px auto;">
+        <input placeholder="Password" type="password" th:field="*{password}" class="form-control" id="password"
+            style="width: 180px;margin: 30px auto;">
+
+        <div class="form-group">
+            <input type="submit" name="login" class="form-control login-btn sign" Value="Login">
+            <a href=# style="color:gray;text-align:center;font-family:Nexa-Light"><h6 style="margin-top:10px">Password reset</h6></a>
+        </div>
+    </form>
+</div>
+
 
 <!--  FOOTER  -->
 	<div th:replace="includes/footer :: footer"></div>
