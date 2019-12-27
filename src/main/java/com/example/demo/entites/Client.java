@@ -21,7 +21,7 @@ public class Client implements Serializable {
 	
 	@Id
 	@GeneratedValue
-	private int id;
+	private Long id;
 	
 	@Column( name = "first_name" )
 	private String fname;
@@ -38,7 +38,7 @@ public class Client implements Serializable {
 	@Column( name = "password" )
 	private String password;
 
-	public Client(int id, String fname, String lname, String adress, String email,
+	public Client(Long id, String fname, String lname, String adress, String email,
 			String password) {
 		super();
 		this.id = id;
@@ -48,17 +48,28 @@ public class Client implements Serializable {
 		this.email = email;
 		this.password = password;
 	}
+	
+	public Client( String fname, String lname, String adress, String email,
+			String password) {
+		super();
+		this.fname = fname;
+		this.lname = lname;
+		this.adress = adress;
+		this.email = email;
+		this.password = password;
+	}
+
 
 	public Client() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

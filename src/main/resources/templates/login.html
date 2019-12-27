@@ -9,7 +9,7 @@
     </div>
     <div th:if="${x}">
        		<h3 class="Nexa-bold alert alert-danger" style="text-align: center" th:text="${erreur}"></h3>
-       	</div>
+    </div>
     <form th:action="@{auth}" method="POST" th:object="${client}">
         <input placeholder="Email" type="email" th:field="*{email}" class="form-control" id="email"
             style="width: 180px;margin: 30px auto;">

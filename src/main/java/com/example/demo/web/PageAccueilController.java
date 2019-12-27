@@ -1,15 +1,20 @@
 package com.example.demo.web;
 
+import java.util.Optional;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.dao.ClientDao;
-import com.example.demo.dao.UserDao;
 import com.example.demo.entites.Client;
-import com.example.demo.entites.User;
+
 
 @Controller 
 @RequestMapping ("/OrendaJE")
@@ -17,11 +22,18 @@ import com.example.demo.entites.User;
 public class PageAccueilController {
 
 	@Autowired
-	ClientDao cd ; 
-	UserDao ud ;
+	ClientDao cd ;
 	
-	@RequestMapping ("/accueil")
-	public String AccueilPage ( ) {
+	
+	@RequestMapping ( value = "/accueil" , method = RequestMethod.GET )
+	public String AccueilPage ( Model m , @RequestParam(name="y" , defaultValue="false")boolean y , @RequestParam(name="email" , defaultValue="")String email ) {
+		if ( y == true ) {
+			Client clt = cd.findByEmail(email) ; 
+			m.addAttribute("client", clt) ; 
+			m.addAttribute("y", y) ; 
+			return "index" ; 
+		}
+		m.addAttribute("y", false) ;
 		return "index" ; 
 	}
 	
@@ -56,15 +68,4 @@ public class PageAccueilController {
 		}
 	}
 	
-	@RequestMapping ( value = "/auth" , method = RequestMethod.POST )
-	public String CheckAccount ( Model m , Client clt) {
-		Client clt_Check = cd.findByEmail(clt.getEmail()) ; 
-		if ( clt_Check == null ) {
-			m.addAttribute("erreur", "Email or Password Invalid") ;
-			m.addAttribute("x",true) ; 
-			return "login" ; 
-		} else 
-			return "index" ; 
-	}
-
 }
