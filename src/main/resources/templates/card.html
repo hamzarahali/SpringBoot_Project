@@ -1,0 +1,24 @@
+<!--  HEADER  -->
+	<div th:replace="includes/header :: header"></div>
+
+	<div class="container" style="padding: 30px 190px;" th:if="${z}">
+		<h1 class="Nexa-Bold" style='text-align :center;margin-bottom:30px'>All card </h1>
+		<table class="table table-bordered table-hover">
+			<tr>
+				<th>Title</th>
+				<th>Image</th>
+				<th>Price</th>
+				<th></th>
+				<th></th>
+			</tr>
+			<form action="@{sauv}" method="POST" th:object="${article}">
+				<tr>
+					<td th:field="*{title}"></td>
+					<td><img th:src="{'/images/' + *{img}"></td>
+					<td th:field="*{prix}"></td>
+				</tr>
+			</form>
+		</table>
+	</div>
+<!--  FOOTER  -->
+	<div th:replace="includes/footer :: footer"></div>

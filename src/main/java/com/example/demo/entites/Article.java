@@ -2,6 +2,7 @@ package com.example.demo.entites;
 
 import javax.persistence.*;
 
+
 import lombok.*;
 
 @Entity
@@ -14,15 +15,14 @@ import lombok.*;
 
 public class Article {
 	
-	
 	@Id
 	@GeneratedValue
-	private int id;
+	private Long id;
 	
 	@Column(name="title")
 	private String title;
 	
-	@Column(name="description")
+	@Column(name="description" , columnDefinition = "TEXT")
 	private String desc;
 	
 	@Column(name="prix")
@@ -31,8 +31,8 @@ public class Article {
 	@Column(name="img")
 	private String img;
 	
-	
-	public Article(int id,String title,String desc,String prix,String img) {
+
+	public Article(Long id,String title,String desc,String prix,String img) {
 		
 		super();
 		
@@ -44,10 +44,14 @@ public class Article {
 		
 	}
 	
+public Article() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 public Article(String title,String desc,String prix,String img) {
 		
 		super();
-		
 		this.title=title;
 		this.desc=desc;
 		this.prix=prix;
@@ -55,11 +59,11 @@ public Article(String title,String desc,String prix,String img) {
 		
 	}
 
-public int getId() {
+public Long getId() {
 	return id;
 }
 
-public void setId(int id) {
+public void setId(Long id) {
 	this.id = id;
 }
 

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,7 +12,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table ( name = "client" )
+@Table ( name = "clients" )
 @Getter
 @Setter
 @AllArgsConstructor
@@ -32,11 +33,12 @@ public class Client implements Serializable {
 	@Column( name = "adress" )
 	private String adress;
 	
-	@Column( name = "email" )
+	@Email
 	private String email;
 	
 	@Column( name = "password" )
 	private String password;
+	
 
 	public Client(Long id, String fname, String lname, String adress, String email,
 			String password) {

@@ -2,7 +2,7 @@
 	<div th:replace="includes/header :: header"></div>
 	
 	<div class="container" style="padding: 30px 190px;">
-    <form method="POST" th:object="${client}">
+    <form  th:action="@{update}" method="POST" th:object="${client}">
         <h1 class="Nexa-Bold" style='text-align :center;margin-bottom:30px'>Profile account</h1>
         <div class="row">
             <div class="col-md-6" style="border-right: 1px solid #00000030;padding: 30px;">
@@ -15,7 +15,7 @@
                     <input type="text" th:field="*{lname}" id="lastname" class="form-control">
 
 					<label for="country"> Adress : </label>
-                	<input th:field="*{adress}" id="country" class="form-control" />
+                	<input type="text" th:field="*{adress}" id="country" class="form-control" />
                 	
                 </div>
             </div>
@@ -27,10 +27,10 @@
                 <br>
 
 				<label for="email"> E-mail : </label>
-                <input type="email" th:field="${client.email}" id="email" class="form-control">
+                <input type="email" th:field="*{email}" id="email" class="form-control">
 
                 <label for="password"> Password : </label>
-                <input type="password" id='password1' th:field="${client.password}" class="form-control">
+                <input type="password" id='password1' th:field="*{password}" class="form-control">
                 
                 <label for="password"> Confirm Password : </label>
                 <input type="password" id='password2' name="" class="form-control">
@@ -39,7 +39,7 @@
         </div>
         <div class="form-group">
             <br><br>
-            <input type="submit" name="register" onclick="return validate()" class="form-control sign" Value="Update">
+            <input type="submit" name="update" onclick="return validate()" class="form-control sign" Value="Update">
         </div>
     </form>
 </div>
