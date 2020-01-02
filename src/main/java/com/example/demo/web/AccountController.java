@@ -23,7 +23,6 @@ public class AccountController {
 	ClientDao cd ;
 	@Autowired
 	ArticleDao ad ;
-
 	
 	@RequestMapping ( value = "/auth" , method = RequestMethod.POST )
 	public String CheckAccount ( Model m , Client clt ) {
@@ -54,7 +53,7 @@ public class AccountController {
 		m.addAttribute("y", true ) ;
  		return "profile" ;
 	}
-	 
+	
 	@RequestMapping ( value = "/card" , method = RequestMethod.GET ) 
 	public String ViewCard ( Model m , @RequestParam(name="email", defaultValue="0")String email ) {
 		Client clt = cd.findByEmail(email) ;
@@ -64,16 +63,6 @@ public class AccountController {
 		return "card" ;
 	}
 	
-	@RequestMapping ( value = "/hifi" , method = RequestMethod.GET )
-	public String ViewHifi ( Model m , @RequestParam(name="email", defaultValue="0")String email ) {
-		Client clt = cd.findByEmail(email) ; 
-		m.addAttribute("y", true) ;
-		m.addAttribute("client", clt ) ; 
-		List liste = (List) ad.findAll() ; 
-		m.addAttribute("articles", liste) ;
-		return "hifi" ; 
-	}
-	
 	@RequestMapping ( value = "/homeappliance" , method = RequestMethod.GET )
 	public String ViewHomeAppliance ( Model m , @RequestParam(name="email", defaultValue="0")String email ) {
 		Client clt = cd.findByEmail(email) ; 
@@ -81,15 +70,5 @@ public class AccountController {
 		m.addAttribute("client", clt ) ;
 		return "homeappliance" ; 
 	}
-
-	@RequestMapping ( value ="/addcard" , method = RequestMethod.GET ) 
-	public String AddCard ( Model m , @RequestParam(name="email", defaultValue="0")String email , @RequestParam(name="id_art")int  id ) {
-		Client clt = cd.findByEmail(email) ; 
-		m.addAttribute("y", true) ;
-		m.addAttribute("client", clt ) ; 
-		m.addAttribute("z", true) ; 
-		return "card" ;
-	}
-
 	
 }

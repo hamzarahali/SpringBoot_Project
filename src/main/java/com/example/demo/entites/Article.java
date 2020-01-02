@@ -1,5 +1,7 @@
 package com.example.demo.entites;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 
@@ -13,7 +15,7 @@ import lombok.*;
 @NoArgsConstructor
 
 
-public class Article {
+public class Article implements Serializable {
 	
 	@Id
 	@GeneratedValue

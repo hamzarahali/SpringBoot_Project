@@ -1,24 +1,28 @@
+
 <!--  HEADER  -->
 	<div th:replace="includes/header :: header"></div>
 
 	<div class="container" style="padding: 30px 190px;" th:if="${z}">
 		<h1 class="Nexa-Bold" style='text-align :center;margin-bottom:30px'>All card </h1>
-		<table class="table table-bordered table-hover">
-			<tr>
-				<th>Title</th>
-				<th>Image</th>
-				<th>Price</th>
-				<th></th>
-				<th></th>
-			</tr>
-			<form action="@{sauv}" method="POST" th:object="${article}">
+			<table class="table table-bordered table-hover text-center">
 				<tr>
-					<td th:field="*{title}"></td>
-					<td><img th:src="{'/images/' + *{img}"></td>
-					<td th:field="*{prix}"></td>
+					<th>Title</th>
+					<th>Image</th>
+					<th>Price</th>
+					<th>Quantity</th>
 				</tr>
-			</form>
-		</table>
+				<tr>
+					 <td th:text="${article.title}"></td>
+					 <td><img th:src="@{'/images/' + ${article.img}}" width="80"></td>
+					 <td th:text="${article.prix}"></td>
+					 <td><input type="Number"></td>
+				</tr>
+			</table>
+			<div  style="text-align: right">
+				<br>
+				<a th:href="@{delete(y=${y},email=${client.email})}" class="btn sign">Delete</a> &nbsp;&nbsp;&nbsp;&nbsp;
+				<a th:href="@{confirm(y=${y},email=${client.email},id_art=${article.id})}" class="btn sign">Confirm</a>
+			</div>
 	</div>
 <!--  FOOTER  -->
 	<div th:replace="includes/footer :: footer"></div>
