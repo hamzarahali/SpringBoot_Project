@@ -16,4 +16,5 @@ public interface ArticleDao extends JpaRepository<Article, Long> {
 			  nativeQuery = true)
 			Article Rech( @Param ("x") Long id );
 	
+	List findByCat ( String cat ) ; 
 }

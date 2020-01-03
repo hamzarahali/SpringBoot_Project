@@ -23,12 +23,15 @@ public class OrendaJeApplication {
 		
 		// Article 
 		ArticleDao ad = ctx.getBean(ArticleDao.class) ; 
-		Article a1 = new Article ("Chaîne HiFi Essentielb MS4001BT Bluetooth","Micro chaine GRUNDIG MS240.Lecteur CD compatible MP3/WMASimple cassette enregistreur (enregistre la radio, le CD, les ports USB ou SD )Enregistrement synchronisé CD/K7Tuner Digital PLL FM RDS 30 mémoiresPort USB + slot SD : Lecture MP3Fonctions Horloge, Alarme et SleepMise à l'heure automatique via le RDSLoudness AutomatiqueUltra Bass SystemEnceintes 2 voies Bass ReflexTélécommande.","500 DT","hifi1.jpg") ; 
-		Article a2 = new Article ("Chaîne HiFi Essentielb MS4001BT Bluetooth","Micro chaine GRUNDIG MS240.Lecteur CD compatible MP3/WMASimple cassette enregistreur (enregistre la radio, le CD, les ports USB ou SD )Enregistrement synchronisé CD/K7Tuner Digital PLL FM RDS 30 mémoiresPort USB + slot SD : Lecture MP3Fonctions Horloge, Alarme et SleepMise à l'heure automatique via le RDSLoudness AutomatiqueUltra Bass SystemEnceintes 2 voies Bass ReflexTélécommande.","700 DT","hifi2.jpg") ; 
-		Article a3 = new Article ("Chaîne HiFi Essentielb MS4001BT Bluetooth","Micro chaine GRUNDIG MS240.Lecteur CD compatible MP3/WMASimple cassette enregistreur (enregistre la radio, le CD, les ports USB ou SD )Enregistrement synchronisé CD/K7Tuner Digital PLL FM RDS 30 mémoiresPort USB + slot SD : Lecture MP3Fonctions Horloge, Alarme et SleepMise à l'heure automatique via le RDSLoudness AutomatiqueUltra Bass SystemEnceintes 2 voies Bass ReflexTélécommande.","420 DT","hifi3.jpg") ; 
+		Article a1 = new Article ("Chaîne HiFi Essentielb MS4001BT Bluetooth","Micro chaine GRUNDIG MS240.Lecteur CD compatible MP3/WMASimple cassette enregistreur (enregistre la radio, le CD, les ports USB ou SD )Enregistrement synchronisé CD/K7Tuner Digital PLL FM RDS 30 mémoiresPort USB + slot SD : Lecture MP3Fonctions Horloge, Alarme et SleepMise à l'heure automatique via le RDSLoudness AutomatiqueUltra Bass SystemEnceintes 2 voies Bass ReflexTélécommande.","500 DT","hifi1.jpg","hifi") ; 
+		Article a2 = new Article ("Chaîne HiFi Essentielb MS4001BT Bluetooth","Micro chaine GRUNDIG MS240.Lecteur CD compatible MP3/WMASimple cassette enregistreur (enregistre la radio, le CD, les ports USB ou SD )Enregistrement synchronisé CD/K7Tuner Digital PLL FM RDS 30 mémoiresPort USB + slot SD : Lecture MP3Fonctions Horloge, Alarme et SleepMise à l'heure automatique via le RDSLoudness AutomatiqueUltra Bass SystemEnceintes 2 voies Bass ReflexTélécommande.","700 DT","hifi2.jpg","hifi") ; 
+		Article a3 = new Article ("Chaîne HiFi Essentielb MS4001BT Bluetooth","Micro chaine GRUNDIG MS240.Lecteur CD compatible MP3/WMASimple cassette enregistreur (enregistre la radio, le CD, les ports USB ou SD )Enregistrement synchronisé CD/K7Tuner Digital PLL FM RDS 30 mémoiresPort USB + slot SD : Lecture MP3Fonctions Horloge, Alarme et SleepMise à l'heure automatique via le RDSLoudness AutomatiqueUltra Bass SystemEnceintes 2 voies Bass ReflexTélécommande.","420 DT","hifi3.jpg","hifi") ; 
+		Article a4 = new Article ("Chaîne HiFi Essentielb MS4001BT Bluetooth","Micro chaine GRUNDIG MS240.Lecteur CD compatible MP3/WMASimple cassette enregistreur (enregistre la radio, le CD, les ports USB ou SD )Enregistrement synchronisé CD/K7Tuner Digital PLL FM RDS 30 mémoiresPort USB + slot SD : Lecture MP3Fonctions Horloge, Alarme et SleepMise à l'heure automatique via le RDSLoudness AutomatiqueUltra Bass SystemEnceintes 2 voies Bass ReflexTélécommande.","500 DT","hifi1.jpg","hifi") ; 
+
 		ad.save(a1) ; 
 		ad.save(a2) ; 
 		ad.save(a3) ; 
+		ad.save(a4) ; 
 
 	}
 

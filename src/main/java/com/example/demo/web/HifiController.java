@@ -33,7 +33,7 @@ public class HifiController {
 		Client clt = cd.findByEmail(email) ; 
 		m.addAttribute("y", true) ;
 		m.addAttribute("client", clt ) ; 
-		List liste = (List) ad.findAll() ; 
+		List liste = (List) ad.findByCat("hifi") ; 
 		m.addAttribute("articles", liste) ;
 		return "hifi" ; 
 	}
@@ -67,9 +67,9 @@ public class HifiController {
 		Client clt = cd.findByEmail(email) ; 
 		m.addAttribute("y", true) ;
 		m.addAttribute("client", clt ) ; 
-		List liste = (List) ad.findAll() ; 
+		List liste = (List) ad.findByCat("hifi") ;
 		m.addAttribute("articles", liste) ;
 	 	return "hifi" ; 
 	}
-
+	
 }

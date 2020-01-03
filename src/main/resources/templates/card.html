@@ -23,6 +23,22 @@
 				<a th:href="@{delete(y=${y},email=${client.email})}" class="btn sign">Delete</a> &nbsp;&nbsp;&nbsp;&nbsp;
 				<a th:href="@{confirm(y=${y},email=${client.email},id_art=${article.id})}" class="btn sign">Confirm</a>
 			</div>
+			<h1 class="Nexa-Bold" style='text-align :center;margin-bottom:30px'>My card</h1>
+			<table class="table table-bordered table-hover text-center">
+				<tr>
+					<th>Id_Cmd</th>
+					<th>Title</th>
+					<th>Image</th>
+					<th>Total price</th>
+				</tr>
+				<tr>
+					<td th:text="${cmd.id}"></td>
+					<td th:text="${article.title}"></td>
+					<td><img th:src="@{'/images/' + ${article.img}}" width="80"></td>
+					<td th:text="${article.prix}"></td>
+					<td><input type="Number"></td>
+				</tr>
+			</table>
 	</div>
 <!--  FOOTER  -->
 	<div th:replace="includes/footer :: footer"></div>

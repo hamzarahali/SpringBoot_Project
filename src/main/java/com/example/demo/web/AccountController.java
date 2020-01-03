@@ -54,15 +54,6 @@ public class AccountController {
  		return "profile" ;
 	}
 	
-	@RequestMapping ( value = "/card" , method = RequestMethod.GET ) 
-	public String ViewCard ( Model m , @RequestParam(name="email", defaultValue="0")String email ) {
-		Client clt = cd.findByEmail(email) ;
-		m.addAttribute("y", true) ;
-		m.addAttribute("z", false) ;
-		m.addAttribute("client", clt ) ;
-		return "card" ;
-	}
-	
 	@RequestMapping ( value = "/homeappliance" , method = RequestMethod.GET )
 	public String ViewHomeAppliance ( Model m , @RequestParam(name="email", defaultValue="0")String email ) {
 		Client clt = cd.findByEmail(email) ; 

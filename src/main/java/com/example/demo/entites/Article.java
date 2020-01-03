@@ -14,7 +14,6 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 
-
 public class Article implements Serializable {
 	
 	@Id
@@ -27,39 +26,37 @@ public class Article implements Serializable {
 	@Column(name="description" , columnDefinition = "TEXT")
 	private String desc;
 	
-	@Column(name="prix")
+	@Column(name="price")
 	private String prix;
 	
 	@Column(name="img")
 	private String img;
 	
+	@Column ( name = "category" ) 
+	private String cat ; 
 
-	public Article(Long id,String title,String desc,String prix,String img) {
-		
-		super();
-		
-		this.id=id;
-		this.title=title;
-		this.desc=desc;
-		this.prix=prix;
-		this.img=img;
-		
-	}
-	
 public Article() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-public Article(String title,String desc,String prix,String img) {
-		
+public Article(Long id, String title, String desc, String prix, String img, String cat) {
 		super();
-		this.title=title;
-		this.desc=desc;
-		this.prix=prix;
-		this.img=img;
-		
+		this.id = id;
+		this.title = title;
+		this.desc = desc;
+		this.prix = prix;
+		this.img = img;
+		this.cat = cat;
 	}
+public Article(String title, String desc, String prix, String img, String cat) {
+	super();
+	this.title = title;
+	this.desc = desc;
+	this.prix = prix;
+	this.img = img;
+	this.cat = cat;
+}
 
 public Long getId() {
 	return id;
@@ -100,7 +97,14 @@ public String getImg() {
 public void setImg(String img) {
 	this.img = img;
 }
-	
-	
+
+public String getCat() {
+	return cat;
+}
+
+public void setCat(String cat) {
+	this.cat = cat;
+}
+
 
 }
