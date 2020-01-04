@@ -34,28 +34,32 @@ public class Article implements Serializable {
 	
 	@Column ( name = "category" ) 
 	private String cat ; 
+	
+	@OneToOne ( mappedBy = "article" )
+	public Commande commande ;
 
 public Article() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-public Article(Long id, String title, String desc, String prix, String img, String cat) {
-		super();
-		this.id = id;
-		this.title = title;
-		this.desc = desc;
-		this.prix = prix;
-		this.img = img;
-		this.cat = cat;
-	}
-public Article(String title, String desc, String prix, String img, String cat) {
+public Article(Long id, String title, String desc, String prix, String img, String cat, Commande commande) {
 	super();
+	this.id = id;
 	this.title = title;
 	this.desc = desc;
 	this.prix = prix;
 	this.img = img;
 	this.cat = cat;
+	this.commande = commande;
+}
+public Article(String title, String desc, String prix, String img, String cat) {
+	this.title = title;
+	this.desc = desc;
+	this.prix = prix;
+	this.img = img;
+	this.cat = cat;
+
 }
 
 public Long getId() {
@@ -106,5 +110,12 @@ public void setCat(String cat) {
 	this.cat = cat;
 }
 
+public Commande getCommande() {
+	return commande;
+}
+
+public void setCommande(Commande commande) {
+	this.commande = commande;
+}
 
 }

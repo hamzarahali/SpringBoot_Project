@@ -1,9 +1,9 @@
-
 <!--  HEADER  -->
 	<div th:replace="includes/header :: header"></div>
 
-	<div class="container" style="padding: 30px 190px;" th:if="${z}">
-		<h1 class="Nexa-Bold" style='text-align :center;margin-bottom:30px'>All card </h1>
+	<div class="container" style="padding: 30px 190px;">
+		<div th:if="${z}">
+			<h1 class="Nexa-Bold" style='text-align :center;margin-bottom:30px'>All card </h1>
 			<table class="table table-bordered table-hover text-center">
 				<tr>
 					<th>Title</th>
@@ -23,22 +23,32 @@
 				<a th:href="@{delete(y=${y},email=${client.email})}" class="btn sign">Delete</a> &nbsp;&nbsp;&nbsp;&nbsp;
 				<a th:href="@{confirm(y=${y},email=${client.email},id_art=${article.id})}" class="btn sign">Confirm</a>
 			</div>
+		</div>
+		<div th:if="${cmd!=null} and ${z==true}">
 			<h1 class="Nexa-Bold" style='text-align :center;margin-bottom:30px'>My card</h1>
 			<table class="table table-bordered table-hover text-center">
 				<tr>
 					<th>Id_Cmd</th>
-					<th>Title</th>
-					<th>Image</th>
-					<th>Total price</th>
+					<th>Id_Art</th>
+					<th>Quantity</th>
+					<th></th>
+					<th></th>
+					<th></th>
 				</tr>
-				<tr>
+				<tr th:each="cmd :${cmd}">
 					<td th:text="${cmd.id}"></td>
-					<td th:text="${article.title}"></td>
-					<td><img th:src="@{'/images/' + ${article.img}}" width="80"></td>
-					<td th:text="${article.prix}"></td>
-					<td><input type="Number"></td>
+					<td ></td>
+					<td th:text="${cmd.qte}"></td>
+					<td></td>
+					<td></td>
+					<td></td>
 				</tr>
 			</table>
+		</div>
+		
+		<div th:if="${z==false} and ${cmd!=null}">
+			<h1 class="Nexa-Bold" style='text-align :center;margin-bottom:30px'>your cart is empty</h1>
+		</div>
 	</div>
 <!--  FOOTER  -->
 	<div th:replace="includes/footer :: footer"></div>

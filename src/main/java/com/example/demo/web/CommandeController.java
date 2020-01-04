@@ -1,5 +1,7 @@
 package com.example.demo.web;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,10 +34,8 @@ public class CommandeController {
 		m.addAttribute("y", true) ;
 		m.addAttribute("z", false) ;
 		m.addAttribute("client", clt ) ;
-		Commande cmd = (Commande) cmdd.findAll() ; 
-		Article art = ad.Rech(cmd.getId_art()) ; 
+		List cmd = cmdd.findAll() ; 
 		m.addAttribute("cmd", cmd) ; 
-		m.addAttribute("art", art) ;
 		return "card" ;
 	}
 	

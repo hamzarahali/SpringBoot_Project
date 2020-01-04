@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -26,32 +27,31 @@ public class Commande implements Serializable {
 	@GeneratedValue
 	private Long id ; 
 	
-	@Column ( name = "id_article" ) 
-	private Long id_art ; 
+	@OneToOne
+	private Article article ; 
 	
 	@Column ( name = "quantity" )
 	private int qte ; 
 	
 	@Column ( name = "id_client" )
 	private Long id_clt ;
-
-	public Commande(Long id, Long id_art, int qte, Long id_clt) {
-		super();
-		this.id = id;
-		this.id_art = id_art;
-		this.qte = qte;
-		this.id_clt = id_clt;
-	}
-	
-	public Commande( Long id_art, Long id_clt) {
-		this.id_art = id_art;
-		this.id_clt = id_clt;
-	}
 	
 	public Commande() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	public Commande(Long id, Article article, int qte, Long id_clt) {
+		super();
+		this.id = id;
+		this.article = article;
+		this.qte = qte;
+		this.id_clt = id_clt;
+	}
+	public Commande(Article article, Long id_clt) {
+		this.article = article;
+		this.id_clt = id_clt;
+	}
+
 
 	public Long getId() {
 		return id;
@@ -61,12 +61,12 @@ public class Commande implements Serializable {
 		this.id = id;
 	}
 
-	public Long getId_art() {
-		return id_art;
+	public Article getArticle() {
+		return article;
 	}
 
-	public void setId_art(Long id_art) {
-		this.id_art = id_art;
+	public void setArticle(Article article) {
+		this.article = article;
 	}
 
 	public int getQte() {
@@ -84,5 +84,6 @@ public class Commande implements Serializable {
 	public void setId_clt(Long id_clt) {
 		this.id_clt = id_clt;
 	}
+
 	
 }

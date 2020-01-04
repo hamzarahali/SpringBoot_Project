@@ -52,13 +52,15 @@ public class HifiController {
 	@RequestMapping ( value = "/confirm" , method = RequestMethod.GET ) 
 	public String ConfirmArticle ( Model m ,@RequestParam(name="email", defaultValue="0")String email , @RequestParam(name="id_art",defaultValue="0")int id ) {
 		Client clt = cd.findByEmail(email) ; 
-		Commande cmds = new Commande (new Long(id),clt.getId()) ;
+		Article art = ad.Rech(new Long(id)) ; 
+		Commande cmds = new Commande (art,clt.getId()) ;
 		cmdd.save(cmds) ;
+		if ( cmds != null )
 		m.addAttribute("y", true) ;
 		m.addAttribute("client", clt ) ; 
 		m.addAttribute("z", false) ; 
-		Article art = ad.Rech(new Long(id)) ; 
-		m.addAttribute("article", art) ; 
+		List cmd = cmdd.findAll() ; 
+		m.addAttribute("cmd", cmd) ; 
 		return "card" ; 
 	}
 	
