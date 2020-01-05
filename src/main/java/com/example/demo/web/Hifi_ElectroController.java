@@ -38,20 +38,16 @@ public class Hifi_ElectroController {
 		return "hifi" ; 
 	}
 	
-	@RequestMapping ( value = "/homeappliance" , method = RequestMethod.GET )
-	public String ViewHomeappliance( Model m , @RequestParam(name="email", defaultValue="0")String email ) {
+	@RequestMapping ( value = "/homeappliance" , method = RequestMethod.GET ) 
+	public String ViewHomeAppliance ( Model m , @RequestParam(name="email", defaultValue="0")String email ) {
 		Client clt = cd.findByEmail(email) ; 
 		m.addAttribute("y", true) ;
 		m.addAttribute("client", clt ) ; 
-		List liste = (List) ad.findByCat("electromenager") ; 
+		List liste =  ad.findByCat("electro") ; 
 		m.addAttribute("articles", liste) ;
-		
-		return "homeappliance";
+		return "homeappliance" ; 
 	}
-	
-	
-	
-	
+		
 	@RequestMapping ( value ="/addcard" , method = RequestMethod.GET ) 
 	public String AddCard ( Model m , @RequestParam(name="email", defaultValue="0")String email , @RequestParam(name="id_art",defaultValue="0")int  id ) {
 		Client clt = cd.findByEmail(email) ; 
