@@ -1,0 +1,56 @@
+<!--  HEADER  -->
+	<div th:replace="includes/header :: header"></div>
+	
+	<div class="container" style="padding: 30px 190px;">
+		<div th:if="${test}">
+			<form th:action="@{confirm(y=${y},email=${client.email},id_art=${article.id})}" method="POST" th:object="${cmd}">
+				<h1 class="Nexa-Bold" style='text-align :center;margin-bottom:30px'>All card </h1>
+				<table class="table table-bordered table-hover text-center">
+					<tr>
+						<th>Title</th>
+						<th>Image</th>
+						<th>Price</th>
+						<th>Quantity</th>
+					</tr>
+					<tr>
+						 <td th:text="${article.title}"></td>
+						 <td><img th:src="@{'/images/' + ${article.img}}" width="80"></td>
+						 <td th:text="${article.prix}"></td>
+						 <td><input type="number" value="2" th:field="*{qte}" required></td>
+					</tr>
+				</table>
+				<div  style="text-align: right">
+					<br>
+					<a th:href="@{delete(y=${y},email=${client.email})}" class="btn btn-danger sign">Delete</a> &nbsp;&nbsp;&nbsp;&nbsp; 
+					<input type="Submit" value="Confirm" class="btn btn-primary sign">
+				</div>
+			</form>
+		</div>
+		<div th:unless="${test}">
+			<form th:action="@{confirmedit(y=${y},email=${client.email},id_art=${article.id},cmd=${cmd.id})}" method="POST" th:object="${cmd}">
+				<h1 class="Nexa-Bold" style='text-align :center;margin-bottom:30px'>Edit commande</h1>
+				<table class="table table-bordered table-hover text-center">
+					<tr>
+						<th>Title</th>
+						<th>Image</th>
+						<th>Price</th>
+						<th>Quantity</th>
+					</tr>
+					<tr>
+						 <td th:text="${article.title}"></td>
+						 <td><img th:src="@{'/images/' + ${article.img}}" width="80"></td>
+						 <td th:text="${article.prix}"></td>
+						 <td><input type="number" value="2" th:field="*{qte}" required></td>
+					</tr>
+				</table>
+				<div  style="text-align: right">
+					<br>
+					<a th:href="@{card(y=${y},email=${client.email})}" class="btn btn-danger sign">Cancel</a> &nbsp;&nbsp;&nbsp;&nbsp; 
+					<input type="Submit" value="Edit" class="btn btn-primary sign">
+				</div>
+			</form>
+		</div>
+	</div>
+	
+<!--  FOOTER  -->
+	<div th:replace="includes/footer :: footer"></div>

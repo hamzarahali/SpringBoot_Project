@@ -30,28 +30,24 @@ public class Commande implements Serializable {
 	@OneToOne
 	private Article article ; 
 	
+	@OneToOne
+	private Client client ;
+	
 	@Column ( name = "quantity" )
-	private int qte ; 
-	
-	@Column ( name = "id_client" )
-	private Long id_clt ;
-	
+	private int qte ;
+
+	public Commande(Long id, Article article, Client client, int qte) {
+		super();
+		this.id = id;
+		this.article = article;
+		this.client = client;
+		this.qte = qte;
+	}
+
 	public Commande() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Commande(Long id, Article article, int qte, Long id_clt) {
-		super();
-		this.id = id;
-		this.article = article;
-		this.qte = qte;
-		this.id_clt = id_clt;
-	}
-	public Commande(Article article, Long id_clt) {
-		this.article = article;
-		this.id_clt = id_clt;
-	}
-
 
 	public Long getId() {
 		return id;
@@ -69,21 +65,21 @@ public class Commande implements Serializable {
 		this.article = article;
 	}
 
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
 	public int getQte() {
 		return qte;
 	}
 
 	public void setQte(int qte) {
 		this.qte = qte;
-	}
-
-	public Long getId_clt() {
-		return id_clt;
-	}
-
-	public void setId_clt(Long id_clt) {
-		this.id_clt = id_clt;
-	}
-
+	} 
+	
 	
 }

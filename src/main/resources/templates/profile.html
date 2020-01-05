@@ -1,8 +1,8 @@
 <!--  HEADER  -->
 	<div th:replace="includes/header :: header"></div>
 	
-	<div class="container" style="padding: 30px 190px;">
-    <form  th:action="@{update}" method="POST" th:object="${client}">
+<div class="container" style="padding: 30px 190px;">
+    <form  th:action="@{editaccount}" method="POST" th:object="${client}">
         <h1 class="Nexa-Bold" style='text-align :center;margin-bottom:30px'>Profile account</h1>
         <div class="row">
             <div class="col-md-6" style="border-right: 1px solid #00000030;padding: 30px;">
@@ -16,7 +16,6 @@
 
 					<label for="country"> Adress : </label>
                 	<input type="text" th:field="*{adress}" id="country" class="form-control" />
-                	
                 </div>
             </div>
             <div class="col-md-6">
@@ -46,6 +45,6 @@
 
 <!--  VALIDATION  -->
 	<script th:src="@{/js/validation.js}"></script>
-
+ 
 <!--  HEADER  -->
 	<div th:replace="includes/footer :: footer"></div>

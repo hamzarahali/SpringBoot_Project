@@ -39,6 +39,8 @@ public class Client implements Serializable {
 	@Column( name = "password" )
 	private String password;
 	
+	@OneToOne ( mappedBy = "client" )
+	public Commande commande ;
 
 	public Client(Long id, String fname, String lname, String adress, String email,
 			String password) {

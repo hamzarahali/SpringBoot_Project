@@ -27,7 +27,7 @@ public class Article implements Serializable {
 	private String desc;
 	
 	@Column(name="price")
-	private String prix;
+	private int prix;
 	
 	@Column(name="img")
 	private String img;
@@ -43,7 +43,7 @@ public Article() {
 		// TODO Auto-generated constructor stub
 	}
 
-public Article(Long id, String title, String desc, String prix, String img, String cat, Commande commande) {
+public Article(Long id, String title, String desc, int prix, String img, String cat, Commande commande) {
 	super();
 	this.id = id;
 	this.title = title;
@@ -53,7 +53,7 @@ public Article(Long id, String title, String desc, String prix, String img, Stri
 	this.cat = cat;
 	this.commande = commande;
 }
-public Article(String title, String desc, String prix, String img, String cat) {
+public Article(String title, String desc, int prix, String img, String cat) {
 	this.title = title;
 	this.desc = desc;
 	this.prix = prix;
@@ -86,11 +86,11 @@ public void setDesc(String desc) {
 	this.desc = desc;
 }
 
-public String getPrix() {
+public int getPrix() {
 	return prix;
 }
 
-public void setPrix(String prix) {
+public void setPrix(int prix) {
 	this.prix = prix;
 }
 

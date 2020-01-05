@@ -1,52 +1,35 @@
 <!--  HEADER  -->
 	<div th:replace="includes/header :: header"></div>
 
-	<div class="container" style="padding: 30px 190px;">
+	<div class="container" style="padding: 30px 150px;">
+		<h6 th:if="${msg!=''}" th:text="${msg}" class="alert alert-success text-center"></h6>
 		<div th:if="${z}">
-			<h1 class="Nexa-Bold" style='text-align :center;margin-bottom:30px'>All card </h1>
-			<table class="table table-bordered table-hover text-center">
-				<tr>
-					<th>Title</th>
-					<th>Image</th>
-					<th>Price</th>
-					<th>Quantity</th>
-				</tr>
-				<tr>
-					 <td th:text="${article.title}"></td>
-					 <td><img th:src="@{'/images/' + ${article.img}}" width="80"></td>
-					 <td th:text="${article.prix}"></td>
-					 <td><input type="Number"></td>
-				</tr>
-			</table>
-			<div  style="text-align: right">
-				<br>
-				<a th:href="@{delete(y=${y},email=${client.email})}" class="btn sign">Delete</a> &nbsp;&nbsp;&nbsp;&nbsp;
-				<a th:href="@{confirm(y=${y},email=${client.email},id_art=${article.id})}" class="btn sign">Confirm</a>
-			</div>
-		</div>
-		<div th:if="${cmd!=null} and ${z==true}">
 			<h1 class="Nexa-Bold" style='text-align :center;margin-bottom:30px'>My card</h1>
 			<table class="table table-bordered table-hover text-center">
 				<tr>
 					<th>Id_Cmd</th>
-					<th>Id_Art</th>
+					<th>Title</th>
+					<th>Photo</th>
 					<th>Quantity</th>
+					<th>Total Price (TND)</th>
 					<th></th>
 					<th></th>
 					<th></th>
 				</tr>
 				<tr th:each="cmd :${cmd}">
 					<td th:text="${cmd.id}"></td>
-					<td ></td>
+					<td th:text="${cmd.article.title}"></td>
+					<td><img th:src="@{'/images/' + ${cmd.article.img}}" width="70"></td>
 					<td th:text="${cmd.qte}"></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td th:text="${cmd.qte} * ${cmd.article.prix}"></td>
+					<td><a th:href="@{editcmd(y=${y},email=${client.email},art=${cmd.article.id},cmd=${cmd.id})}" class="btn btn-success sign">Edit</a></td>
+					<td><a th:href="@{print(y=${y},email=${client.email},cmd=${cmd.id})}" class="btn btn-info sign">Print</a></td>
+					<td><a th:href="@{deletecmd(y=${y},email=${client.email},cmd=${cmd.id})}" class="btn btn-danger sign">Delete</a></td>
 				</tr>
 			</table>
 		</div>
 		
-		<div th:if="${z==false} and ${cmd!=null}">
+		<div th:if="${z==false}">
 			<h1 class="Nexa-Bold" style='text-align :center;margin-bottom:30px'>your cart is empty</h1>
 		</div>
 	</div>

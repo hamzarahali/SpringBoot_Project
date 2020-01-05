@@ -46,7 +46,7 @@ public class AccountController {
 	 	return "profile" ; 
 	}
 	
-	@RequestMapping ( value = "/update" , method = RequestMethod.POST ) 
+	@RequestMapping ( value = "/editaccount" , method = RequestMethod.POST ) 
 	public String UpdateAccount ( Model m , Client client ) {
 		cd.save(client) ;
 		m.addAttribute("client", client) ; 
