@@ -42,13 +42,16 @@ public class AccountController {
 	public String ViewProfile ( Model m , @RequestParam(name="email", defaultValue="0")String email ) {
 		Client clt = cd.findByEmail(email) ; 
 		m.addAttribute("y", true) ;
+		m.addAttribute("msg", "") ; 
 		m.addAttribute("client", clt ) ; 
 	 	return "profile" ; 
 	}
 	
 	@RequestMapping ( value = "/editaccount" , method = RequestMethod.POST ) 
-	public String UpdateAccount ( Model m , Client client ) {
+	public String UpdateAccount ( Model m , Client client ,@RequestParam(name="id_clt", defaultValue="0")long id_clt ) {
+		cd.deleteById(id_clt);
 		cd.save(client) ;
+		m.addAttribute("msg", "Edit account successfully") ; 
 		m.addAttribute("client", client) ; 
 		m.addAttribute("y", true ) ;
  		return "profile" ;

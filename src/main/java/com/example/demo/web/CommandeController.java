@@ -50,7 +50,7 @@ public class CommandeController {
 		m.addAttribute("y", true) ;
 		m.addAttribute("client", clt ) ;
 		cmdd.deleteById(id_cmd);
-		m.addAttribute("msg", "command delete successfully") ; 
+		m.addAttribute("msg", "Command delete successfully") ; 
 		List cmd = cmdd.findAll() ; 
 		m.addAttribute("cmd", cmd) ;
 		boolean z ; 
@@ -87,7 +87,7 @@ public class CommandeController {
 		m.addAttribute("z", true) ; 
 		List liste = cmdd.findAll() ; 
 		m.addAttribute("cmd", liste) ;
-		m.addAttribute("msg", "") ;
+		m.addAttribute("msg", "Edit command successfully") ;
 		return "card" ; 
 	}
 

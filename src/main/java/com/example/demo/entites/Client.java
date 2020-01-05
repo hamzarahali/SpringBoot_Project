@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table ( name = "clients" )
+@Table ( name = "client" )
 @Getter
 @Setter
 @AllArgsConstructor
@@ -42,8 +42,8 @@ public class Client implements Serializable {
 	@OneToOne ( mappedBy = "client" )
 	public Commande commande ;
 
-	public Client(Long id, String fname, String lname, String adress, String email,
-			String password) {
+	public Client(Long id, String fname, String lname, String adress, @Email String email, String password,
+			Commande commande) {
 		super();
 		this.id = id;
 		this.fname = fname;
@@ -51,18 +51,16 @@ public class Client implements Serializable {
 		this.adress = adress;
 		this.email = email;
 		this.password = password;
-	}
+		this.commande = commande;
+	}	
 	
-	public Client( String fname, String lname, String adress, String email,
-			String password) {
-		super();
+	public Client(String fname, String lname, String adress, @Email String email, String password) {
 		this.fname = fname;
 		this.lname = lname;
 		this.adress = adress;
 		this.email = email;
 		this.password = password;
-	}
-
+	}	
 
 	public Client() {
 		super();
@@ -116,5 +114,14 @@ public class Client implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public Commande getCommande() {
+		return commande;
+	}
+
+	public void setCommande(Commande commande) {
+		this.commande = commande;
+	}
+
 
 }
