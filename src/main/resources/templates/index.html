@@ -1,7 +1,30 @@
+
 <!--  HEADER  -->
 	<div th:replace="includes/header :: header"></div>
 
 	<br><br><br><br><br>
-
+	
+	
+	<div class="row">
+	        	<div th:each="a:${articles}" class="col-md-6">
+	        		<div class="text-center">
+	        			<h6 th:text="${a.title}" class="text-center"></h6>
+	        			<img th:src="@{'/images/' + ${a.img}}" width="200px" height="200px">
+	        			<p th:text="${a.desc}"> 
+	        			<h5 th:text="${'Price : ' + {a.prix}} + ' TND'"> </h5><br>
+	        			<div class="row">
+	        				<div class="col-md-4"></div>
+	        				<div class="col-md-4">
+	        					<a th:href="@{addcard(y=${y},email=${client.email},id_art=${a.id})}" class="btn btn-primary form-control sign">Add to card</a>
+	        					<!--  (y=${y},email=${client.email})-->
+	        				</div>
+	        				<div class="col-md-4"></div>
+	        			</div>
+	        			<hr>
+	        		</div>
+	       		</div>
+     	</div>
+	
+	
 <!--  FOOTER  -->
 	<div th:replace="includes/footer :: footer"></div>

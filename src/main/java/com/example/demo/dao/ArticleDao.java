@@ -16,5 +16,12 @@ public interface ArticleDao extends JpaRepository<Article, Long> {
 			  nativeQuery = true)
 			Article Rech( @Param ("x") Long id );
 	
+	@Query(
+			  value = "SELECT * FROM articles a WHERE a.category LIKE :x LIMIT :y", 
+			  nativeQuery = true)
+			List RechArticle( @Param ("x") String cat , @Param ("y") int y );
+	
+	
+	
 	List findByCat ( String cat ) ; 
 }

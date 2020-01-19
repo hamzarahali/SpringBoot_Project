@@ -1,5 +1,6 @@
 package com.example.demo.web;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demo.dao.ArticleDao;
 import com.example.demo.dao.ClientDao;
 import com.example.demo.entites.Client;
 
@@ -23,6 +25,8 @@ public class PageAccueilController {
 
 	@Autowired
 	ClientDao cd ;
+	@Autowired
+	ArticleDao ad ; 
 	
 	
 	@RequestMapping ( value = "/accueil" , method = RequestMethod.GET )
