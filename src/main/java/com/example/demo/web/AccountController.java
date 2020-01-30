@@ -58,4 +58,10 @@ public class AccountController {
  		return "profile" ;
 	}
 	
+	@RequestMapping ( value = "/deleteaccount" , method = RequestMethod.POST ) 
+	public String DeleteAccount ( Model m , @RequestParam(name="id_clt", defaultValue="0")long id_clt ) {
+		cd.deleteById(id_clt);
+		m.addAttribute("y", false) ;
+		return "index" ; 
+	}
 }
